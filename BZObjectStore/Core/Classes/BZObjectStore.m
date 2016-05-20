@@ -124,7 +124,8 @@
         [db open];
         [db close];
     }
-    FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:path];
+    
+    FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:path flags:SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_FILEPROTECTION_NONE];
     return dbQueue;
 }
 
